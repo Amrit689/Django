@@ -1,4 +1,4 @@
-from .views import login_view,signup_view,logout_view,home_view,profile_view,update_user_profile
+from .views import login_view,signup_view,logout_view,home_view,profile_view,update_user_profile,cancel_booking
 from django.urls import path
 
 urlpatterns = [
@@ -7,6 +7,7 @@ urlpatterns = [
     path('logout/',logout_view,name="logout_view"),  # Logout view
     path('home/', home_view, name="home_view"),
     path('profile/<str:username>/', profile_view, name="profile_view"),  
-    path('update_user/', update_user_profile, name="update_user_profile"),  # Update user profile view  # Update user profile view  # Update user profile view  # Update user profile view  # Update user profile view  # Update user profile view  # Update user profile view  # Update user profile view  # Update user profile view  # Update user profile view  # Update user profile view  # Update user profile view  # Update user profile view  #
-    
+    path('update_user/', update_user_profile, name="update_user_profile"),  
+    path('cancel_booking/<int:booking_id>/', cancel_booking, name="cancel_booking"),   # Cancel booking view
+        
 ]

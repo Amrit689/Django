@@ -19,5 +19,5 @@ class MovieBooking(models.Model):
     seat = models.CharField(max_length=10)
     poster = models.ImageField(upload_to="movie_posters/", null=True, blank=True)
 
-    def _str_(self):
+    def __str__(self):
         return f"{self.movie_title} on {self.date} at {self.time}"

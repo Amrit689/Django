@@ -1,7 +1,9 @@
 from django.contrib.auth import get_user_model,authenticate,login,logout
 from .models import UserProfileModel,MovieBooking
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib import messages
+from django.http import HttpResponseForbidden, HttpResponseNotFound
+
 def login_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -78,3 +80,17 @@ def update_user_profile(request):
         user_instance.save()
         return redirect('profile_view',username=request.user.username)
     return render(request, 'update_profile.html',context={"request":request,"user":request.user})
+
+def cancel_booking(request, booking_id):
+    try:
+        # Attempt to retrieve the booking
+        booking = MovieBooking.objects.get(id=booking_id, user=request.user)
+    except MovieBooking.DoesNotExist:
+        # Handle the case where the booking does not exist or does not belong to the user
+        return HttpResponseNotFound("The booking you are trying to cancel does not exist or does not belong to you.")
+
+    # Delete the booking
+    booking.delete()
+    
+    # Redirect to the profile page with the username
+    return redirect('profile_view', username=request.user.username)
