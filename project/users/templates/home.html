@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    {% include "navbar.html" %}
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: white;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            background-color:white;
+            padding: 60px; 
+            box-shadow: 0 4px 15px rgb(247, 245, 245);
+            margin-top: 0px;
+            width: 100%; 
+            max-width: 1600px; 
+            height: auto;
+        }   
+
+        h1 {
+            color: #4deeea;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #9ce36b;
+            font-size: 1.5em;
+        }
+
+        p {
+            color: #666;
+            font-size: 1em;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .col-md-4 {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            flex: 0 0 30%;
+            max-width: 30%;
+            text-align: center;
+        }
+
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+
+        .img-fluid:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .col-md-4 {
+                flex: 0 0 45%;
+                max-width: 45%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .col-md-4 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">   
+    <h1>Recommended Movies</h1>
+    <div class="row">
+        {% for movie in recommended_movies %}
+            <div class="col-md-4">
+                <h2>{{ movie.title }}</h2>
+                <p>{{ movie.description }}</p>
+                <img src="{{ movie.poster_url }}" alt="{{ movie.title }} poster" class="img-fluid">
+            </div>
+        {% endfor %}
+    </div>
+    
+    <h1>Upcoming Movies</h1>
+    <div class="row">
+        {% for movie in upcoming_movies %}
+            <div class="col-md-4">
+                <h2>{{ movie.title }}</h2>
+                <p>{{ movie.description }}</p>
+                <img src="{{ movie.poster_url }}" alt="{{ movie.title }} poster" class="img-fluid">
+            </div>
+        {% endfor %}
+    </div>
+    
+    <h1>Live Movies</h1>
+    <div class="row">
+        {% for movie in live_movies %}
+            <div class="col-md-4">
+                <h2>{{ movie.title }}</h2>
+                <p>{{ movie.description }}</p>
+                <img src="{{ movie.poster_url }}" alt="{{ movie.title }} poster" class="img-fluid">
+            </div>
+        {% endfor %}
+    </div>
+    
+    <h1>Recommended Shows</h1>
+    <div class="row">
+        {% for show in recommended_shows %}
+            <div class="col-md-4">
+                <h2>{{ show.title }}</h2>
+                <p>{{ show.description }}</p>
+                <img src="{{ show.poster_url }}" alt="{{ show.title }} poster" class="img-fluid">
+            </div>
+        {% endfor %}
+    </div>
+    
+    <h1>Upcoming Shows</h1>
+    <div class="row">
+        {% for show in upcoming_shows %}
+            <div class="col-md-4">
+                <h2>{{ show.title }}</h2>
+                <p>{{ show.description }}</p>
+                <img src="{{ show.poster_url }}" alt="{{ show.title }} poster" class="img-fluid">
+            </div>
+        {% endfor %}
+    </div>
+    
+    <h1>Live Shows</h1>
+    <div class="row">
+        {% for show in live_shows %}
+            <div class="col-md-4">
+                <h2>{{ show.title }}</h2>
+                <p>{{ show.description }}</p>
+                <img src="{{ show.poster_url }}" alt="{{ show.title }} poster" class="img-fluid">
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- font awesome icons -->
+<script src="https://kit.fontawesome.com/4a11ea9bc5.js" crossorigin="anonymous"></script>
+<!-- Dependencies for Bootstrap & Jquery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
