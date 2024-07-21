@@ -71,7 +71,7 @@ def update_user_profile(request):
                 print("Username already taken")
             else:
                 user_instance.username = request.POST.get('username')
-        user_profile_instance = user_instance.UserProfileModel_user
+        user_profile_instance = user_instance.profile
         if len(request.FILES) != 0:
             user_profile_instance.profile_picture = request.FILES['profile_picture']
         user_profile_instance.save()

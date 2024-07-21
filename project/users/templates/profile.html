@@ -144,7 +144,7 @@ h2 {
                 <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg" alt="Profile Picture" class="profile-picture">
                 {% endif %}
                 <h1 class="user-name">{{ user.get_full_name }}</h1>
-                <p class="user-username">@{{ user.username }}</p>
+                <p class="user-username">{{ user.username }}</p>
                 <p class="user-email">{{ user.email }}</p>
                 {% if is_user_profile %}
                     <a class="edit-btn" href="{% url 'update_user_profile' %}">Edit Profile</a>
