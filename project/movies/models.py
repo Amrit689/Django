@@ -18,9 +18,12 @@ class Media(models.Model):
     rating = models.DecimalField(max_digits=2, decimal_places=1)
     movie_theater = models.CharField(max_length=100)
     ticket_price = models.DecimalField(max_digits=5, decimal_places=2)
+    language=models.CharField(max_length=250)
+    duration=models.CharField(max_length=100)
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
+   
 
-    def _str_(self):
+    def __str__(self):
         return self.title
 
 
@@ -30,5 +33,5 @@ class Review(models.Model):
     reviewer = models.CharField(max_length=100)
     rating = models.DecimalField(max_digits=2, decimal_places=1)
 
-    def _str_(self):
+    def __str__(self):
         return f'Review for {self.media.title} by {self.reviewer}'

@@ -21,7 +21,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
             width: 100%;
-            max-width: 1400px;
+            max-width: 1300px;
             height: auto;
             overflow-x: auto;
         }
@@ -82,7 +82,9 @@
             <div class="col-md-4">
                 <h2>{{ movie.title }}</h2>
                 <p>{{ movie.genre }}</p>
-                <img src="{{ movie.poster.url }}" alt="{{ movie.title }} poster" class="img-fluid">
+                <a href="{% url 'movie_detail' movie.pk %}">
+                    <img src="{{ movie.poster.url }}" alt="{{ movie.title }} poster" class="img-fluid">
+                </a>
             </div>
         {% endfor %}
     </div>
@@ -95,7 +97,9 @@
             <div class="col-md-4">
                 <h2>{{ movie.title }}</h2>
                 <p>{{ movie.genre }}</p>
-                <img src="{{ movie.poster.url }}" alt="{{ movie.title }} poster" class="img-fluid">
+                <a href="{% url 'movie_detail' movie.pk %}">
+                    <img src="{{ movie.poster.url }}" alt="{{ movie.title }} poster" class="img-fluid">
+                </a>
             </div>
         {% endfor %}
     </div>
@@ -108,7 +112,9 @@
             <div class="col-md-4">
                 <h2>{{ movie.title }}</h2>
                 <p>{{ movie.genre }}</p>
-                <img src="{{ movie.poster.url }}" alt="{{ movie.title }} poster" class="img-fluid">
+                <a href="{% url 'movie_detail' movie.pk %}">
+                    <img src="{{ movie.poster.url }}" alt="{{ movie.title }} poster" class="img-fluid">
+                </a>
             </div>
         {% endfor %}
     </div>
@@ -121,7 +127,9 @@
             <div class="col-md-4">
                 <h2>{{ show.title }}</h2>
                 <p>{{ show.genre }}</p>
-                <img src="{{ show.poster.url }}" alt="{{ show.title }} poster" class="img-fluid">
+                <a href="{% url 'movie_detail' show.pk %}">
+                    <img src="{{ show.poster.url }}" alt="{{ show.title }} poster" class="img-fluid">
+                </a>
             </div>
         {% endfor %}
     </div>
@@ -134,7 +142,9 @@
             <div class="col-md-4">
                 <h2>{{ show.title }}</h2>
                 <p>{{ show.genre }}</p>
-                <img src="{{ show.poster.url }}" alt="{{ show.title }} poster" class="img-fluid">
+                <a href="{% url 'movie_detail' show.pk %}">
+                    <img src="{{ show.poster.url }}" alt="{{ show.title }} poster" class="img-fluid">
+                </a>
             </div>
         {% endfor %}
     </div>
@@ -147,7 +157,9 @@
             <div class="col-md-4">
                 <h2>{{ show.title }}</h2>
                 <p>{{ show.genre }}</p>
-                <img src="{{ show.poster.url }}" alt="{{ show.title }} poster" class="img-fluid">
+                <a href="{% url 'movie_detail' show.pk %}">
+                    <img src="{{ show.poster.url }}" alt="{{ show.title }} poster" class="img-fluid">
+                </a>
             </div>
         {% endfor %}
     </div>
