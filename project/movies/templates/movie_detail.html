@@ -24,7 +24,6 @@
             border-radius: 15px;
             min-height: 500px; /* Adjust this value as needed */
         }
-
         .container {
             margin-top: 20px;
             display: flex;
@@ -34,8 +33,9 @@
             border-radius: 15px;
         }
         .poster {
-            width: 350px; /* increased width */
-            height: auto; /* maintain aspect ratio */
+            width: 250px; /* fixed width */
+            height: 325px; /* fixed height */
+            object-fit: cover; /* cover the area without distorting the aspect ratio */
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             display: block; /* ensure block display */
@@ -79,6 +79,9 @@
             font-size: 1.2em;
             color: #ccc;
         }
+        form {
+            display: inline;
+        }
     </style>
 </head>
 <body>
@@ -86,12 +89,14 @@
     <div class="container">
         <div>
             <img src="{{ movie.poster.url }}" alt="{{ movie.title }} poster" class="poster">
-            <button class="btn-book">Book tickets</button>
+            <form action="{% url 'book_tickets' movie.pk %}" method="get">
+                <button type="submit" class="btn-book">Book tickets</button>
+            </form>
         </div>
         <div class="movie-details">
             <h1>{{ movie.title }}</h1>
             <p><strong>Release Date:</strong> {{ movie.release_year }}</p>
-            <p><strong>Languages:</strong> {{ movie.language }}</p>
+            <p><strong>Language:</strong> {{ movie.language }}</p>
             <p><strong>Duration:</strong> {{ movie.duration }}</p>
             <p><strong>Genres:</strong> {{ movie.genre }}</p>
             <p><strong>Rating:</strong> {{ movie.rating }}</p>

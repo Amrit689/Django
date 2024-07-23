@@ -183,16 +183,11 @@
             <h2>Booked Movie Tickets</h2>
             <ul class="booking-list">
                 {% for booking in bookings %}
-                    <li class="booking-item" id="booking-{{ booking.id }}">
-                        {% if booking.poster %}
-                            <img src="{{ booking.poster.url }}" alt="Movie Poster" class="movie-poster">
-                        {% else %}
-                            <img src="default-movie-poster.jpg" alt="Movie Poster" class="movie-poster">
-                        {% endif %}
+                    <li class="booking-item" id="booking-{{ forloop.counter }}">
+                        <img src="{{ booking.poster.url }}" alt="Movie Poster" class="movie-poster">
                         <div class="booking-details">
-                            <span class="movie-name">{{ booking.movie_title }}</span>
-                            <span class="booking-info">Date: {{ booking.date }} | Time: {{ booking.time }} | Seat: {{ booking.seat }}</span>
-                            <span class="duration-details">Duration: {{ booking.duration }}</span>
+                            <span class="movie-name">{{ booking.title }}</span>
+                            <span class="booking-info">Price: {{ booking.price }}</span>
                         </div>
                         <form action="{% url 'cancel_booking' booking.id %}" method="post" style="margin: 0;">
                             {% csrf_token %}

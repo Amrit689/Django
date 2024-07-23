@@ -68,8 +68,8 @@ def home_view(request):
 
 def profile_view(request, username):
     user_instance = get_user_model().objects.get(username=username)
-    bookings = MovieBooking.objects.filter(user=user_instance)
     is_user_profile = request.user.username == username
+    bookings = MovieBooking.objects.filter(user=user_instance)
 
     context = {
         "user": user_instance,
@@ -101,10 +101,6 @@ def update_user_profile(request):
     return render(request, 'update_profile.html', context={"request": request, "user": request.user})
 
 def cancel_booking(request, booking_id):
-    try:
-        booking = MovieBooking.objects.get(id=booking_id, user=request.user)
-    except MovieBooking.DoesNotExist:
-        return HttpResponseNotFound("The booking you are trying to cancel does not exist or does not belong to you.")
-
+    booking = get_object_or_404(MovieBooking, id=booking_id, user=request.user)
     booking.delete()
     return redirect('profile_view', username=request.user.username)
