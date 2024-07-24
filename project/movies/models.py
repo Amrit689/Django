@@ -20,13 +20,3 @@ class Media(models.Model):
 
     def __str__(self):
         return self.title
-
-
-class Review(models.Model):
-    media = models.ForeignKey(Media, on_delete=models.CASCADE, related_name='reviews')
-    review_text = models.TextField()
-    reviewer = models.CharField(max_length=100)
-    rating = models.DecimalField(max_digits=2, decimal_places=1)
-
-    def __str__(self):
-        return f'Review for {self.media.title} by {self.reviewer}'

@@ -67,13 +67,17 @@
         <form action="{% url 'confirm_booking' movie.pk %}" method="post">
             {% csrf_token %}
             <div class="form-group">
-                <label for="theater">Select Theater:</label>
+                <label for="theater">Select Theater/show venue:</label>
                 <select id="theater" name="theater" required>
                     <option value="">Select Theater</option>
                     <option value="Cinepolis Esplanade">Cinepolis Esplanade</option>
                     <option value="Keshari">Keshari</option>
                     <option value="PVR:utkal kanika galleria">PVR:utkal kanika galleria</option>
                     <option value="Inox:Dn regalia">Inox:Dn regalia</option>
+                    <option value="Rail auditorium">Rail auditorium</option>
+                    <option value="The Space:Patia">The Space:Patia</option>
+                    <option value="The Bocca Cafe">The Bocca Cafe</option>
+                    
                 </select>
             </div>
             <div class="form-group">
