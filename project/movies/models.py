@@ -3,10 +3,10 @@ from django.db import models
 class Media(models.Model):
     CATEGORY_CHOICES = [
         ('Recommended', 'Recommended'),
-        ('Show Live', 'Show Live'),
-        ('All movies','All movies'),
+        ('Live shows', 'Live shows'),  
+        ('All movies', 'All movies'),
+        ('All shows', 'All shows')
     ]
-
     title = models.CharField(max_length=100)
     release_year = models.DateField()
     genre = models.CharField(max_length=50)

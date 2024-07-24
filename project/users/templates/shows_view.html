@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Shows</title>
     {% include "navbar.html" %}
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -19,7 +19,7 @@
             padding: 40px;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
+            margin-top: 2px;
             width: 100%;
             max-width: 1300px;
             height: auto;
@@ -75,38 +75,32 @@
     </style>
 </head>
 <body>
-<div class="container">
-    <h1>Recommended Movies</h1>
-    <div class="row">
-        {% for movie in recommended_movies %}
-            <div class="col-md-4">
-                <h2>{{ movie.title }}</h2>
-                <p>{{ movie.genre }}</p>
-                <a href="{% url 'movie_detail' movie.pk %}">
-                    <img src="{{ movie.poster.url }}" alt="{{ movie.title }} poster" class="img-fluid">
-                </a>
-            </div>
-        {% empty %}
-            <p>No recommended movies available.</p>
-        {% endfor %}
-    </div>
-</div>
+    <div class="container">
+        <h1>All Shows</h1>
+        <div class="row">
+            {% for show in live_shows %}
+                <div class="col-md-4">
+                    <h2>{{ show.title }}</h2>
+                    <p>{{ show.genre }}</p>
+                    <a href="{% url 'movie_detail' show.pk %}">
+                        <img src="{{ show.poster.url }}" alt="{{ show.title }} poster" class="img-fluid">
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
 
-<div class="container">
-    <h1>Live Shows</h1>
-    <div class="row">
-        {% for show in live_shows %}
-            <div class="col-md-4">
-                <h2>{{ show.title }}</h2>
-                <p>{{ show.genre }}</p>
-                <a href="{% url 'movie_detail' show.pk %}">
-                    <img src="{{ show.poster.url }}" alt="{{ show.title }} poster" class="img-fluid">
-                </a>
-            </div>
-        {% empty %}
-            <p>No live shows available.</p>
-        {% endfor %}
+        
+        <div class="row">
+            {% for show in all_shows %}
+                <div class="col-md-4">
+                    <h2>{{ show.title }}</h2>
+                    <p>{{ show.genre }}</p>
+                    <a href="{% url 'movie_detail' show.pk %}">
+                        <img src="{{ show.poster.url }}" alt="{{ show.title }} poster" class="img-fluid">
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
     </div>
-</div>
 </body>
 </html>

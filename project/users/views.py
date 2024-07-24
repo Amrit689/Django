@@ -50,14 +50,16 @@ def home_view(request):
         live_movies = Media.objects.filter(category='Live')
         recommended_shows = Media.objects.filter(category='Show Recommended')
         upcoming_shows = Media.objects.filter(category='Show Upcoming')'''
-        live_shows = Media.objects.filter(category='Show Live')
-        All_movies=Media.objects.filter(category='All movies')
+        live_shows = Media.objects.filter(category='Live shows')
+        #All_movies=Media.objects.filter(category='All movies')
+        #All_shows=Media.objects.filter(category='All shows')
 
         context = {
             'user_profile': user_profile,
             'recommended_movies': recommended_movies,
             'live_shows': live_shows,
-            'All_movies': All_movies,
+            #'All_movies': All_movies,
+            #'All_shows':All_shows,
         }
 
         return render(request, 'home.html', context)
@@ -113,3 +115,12 @@ def movies_view(request):
     }
 
     return render(request, 'movies_view.html', context)
+
+def shows_view(request):
+    live_shows = Media.objects.filter(category='Live shows')
+    all_shows = Media.objects.filter(category='All shows')
+    context = {
+        'live_shows': live_shows,
+        'all_shows': all_shows
+    }
+    return render(request, 'shows_view.html', context)
