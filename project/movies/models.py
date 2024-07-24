@@ -3,11 +3,8 @@ from django.db import models
 class Media(models.Model):
     CATEGORY_CHOICES = [
         ('Recommended', 'Recommended'),
-        ('Upcoming', 'Upcoming'),
-        ('Live', 'Live'),
-        ('Show Recommended', 'Show Recommended'),
-        ('Show Upcoming', 'Show Upcoming'),
         ('Show Live', 'Show Live'),
+        ('All movies','All movies'),
     ]
 
     title = models.CharField(max_length=100)

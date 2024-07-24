@@ -46,20 +46,18 @@ def home_view(request):
         user_profile = UserProfileModel.objects.get(user=request.user)
         
         recommended_movies = Media.objects.filter(category='Recommended')
-        upcoming_movies = Media.objects.filter(category='Upcoming')
+        '''upcoming_movies = Media.objects.filter(category='Upcoming')
         live_movies = Media.objects.filter(category='Live')
         recommended_shows = Media.objects.filter(category='Show Recommended')
-        upcoming_shows = Media.objects.filter(category='Show Upcoming')
+        upcoming_shows = Media.objects.filter(category='Show Upcoming')'''
         live_shows = Media.objects.filter(category='Show Live')
+        All_movies=Media.objects.filter(category='All movies')
 
         context = {
             'user_profile': user_profile,
             'recommended_movies': recommended_movies,
-            'upcoming_movies': upcoming_movies,
-            'live_movies': live_movies,
-            'recommended_shows': recommended_shows,
-            'upcoming_shows': upcoming_shows,
             'live_shows': live_shows,
+            'All_movies': All_movies,
         }
 
         return render(request, 'home.html', context)
@@ -104,3 +102,14 @@ def cancel_booking(request, booking_id):
     booking = get_object_or_404(MovieBooking, id=booking_id, user=request.user)
     booking.delete()
     return redirect('profile_view', username=request.user.username)
+
+def movies_view(request):
+    all_movies = Media.objects.filter(category='All movies')
+    recommended_movies = Media.objects.filter(category='Recommended')
+
+    context = {
+        'all_movies': all_movies,
+        'recommended_movies': recommended_movies,
+    }
+
+    return render(request, 'movies_view.html', context)

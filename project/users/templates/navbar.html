@@ -96,7 +96,7 @@
             <a href="{% url 'home_view' %}">Home</a>
             <a href="{% url 'profile_view' request.user.username %}">Profile</a>
             <a href="#">Events</a>
-            <a href="#">Movies</a>
+            <a href="{% url 'movies_view' %}">Movies</a>
             <a href="{% url 'logout_view' %}">Logout</a>
         </div>
     </div>

@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404, redirect
 from users.models import MovieBooking
 from .models import Media
 from datetime import datetime
-import logging
 from django.db.models import Q
 
 def movie_detail(request, pk):
