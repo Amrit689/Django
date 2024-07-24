@@ -88,9 +88,9 @@
             {% if results %}
                 {% for movie in results %}
                     <div class="movie-item">
-                        <div class="poster-container">
+                        <a href="{% url 'movie_detail' movie.id %}" class="poster-container">
                             <img src="{{ movie.poster.url }}" alt="{{ movie.title }} poster" class="poster">
-                        </div>
+                        </a>
                         <div class="movie-details">
                             <h5>{{ movie.title }}</h5>
                             <p><strong>Genre:</strong> {{ movie.genre }}</p>
