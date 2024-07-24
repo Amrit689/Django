@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
     {% include "navbar.html" %}
-
     <style>
-        body {
+         body {
             font-family: 'Arial', sans-serif;
             background: linear-gradient(to right, #9ce36b, #4deeea);
             margin: 0;
@@ -186,7 +185,9 @@
                     <li class="booking-item" id="booking-{{ forloop.counter }}">
                         <img src="{{ booking.poster.url }}" alt="Movie Poster" class="movie-poster">
                         <div class="booking-details">
-                            <span class="movie-name">{{ booking.title }}</span>
+                            <span class="movie-name">{{ booking.movie_title }}</span>
+                            <span class="booking-info">Theater: {{ booking.theater }}</span>
+                            <span class="booking-info">Time: {{ booking.time }}</span>
                             <span class="booking-info">Price: {{ booking.price }}</span>
                         </div>
                         <form action="{% url 'cancel_booking' booking.id %}" method="post" style="margin: 0;">
