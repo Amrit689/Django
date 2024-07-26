@@ -2,7 +2,6 @@ from django.contrib.auth import get_user_model, authenticate, login, logout
 from .models import UserProfileModel, MovieBooking
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from django.http import HttpResponseForbidden, HttpResponseNotFound
 from movies.models import Media
 
 def login_view(request):
