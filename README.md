@@ -1,4 +1,4 @@
-# Django-project
+# Django-project(Team-The spark)
 PROJECT-movie booking
 WEBSITE NAME-TICKITNOW
 
